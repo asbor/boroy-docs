@@ -57,3 +57,4 @@ We welcome contributions! Check out our [Getting Started](getting-started.md) gu
 <- Multiple sync workflow Testing with auth key 11:38:40 -->
 <- Multiple sync workflow Test with DNS 11:40:16 -->
 <- Multiple sync workflow Final test with Tailscale IP 11:42:23 -->
+<- Multiple sync workflow Test with SSH known_hosts fix 11:46:47 -->
