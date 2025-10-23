@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  kroki:
+    image: yuzutech/kroki
+    ports:
+      - "8000:8000"
+    environment:
+      - KROKI_SAFE_MODE=unsafe
+    networks:
+      - docs-network
+
+  docs:
+    image: squidfunk/mkdocs-material
+    ports:
+      - "8080:8000"
+    volumes:
+      - ./:/docs
+    command: serve --dev-addr=0.0.0.0:8000
+    depends_on:
+      - kroki
+    networks:
+      - docs-network
+
+networks:
+  docs-network:
+    driver: bridge

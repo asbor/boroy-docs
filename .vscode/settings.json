@@ -1,0 +1,34 @@
+{
+  "plantuml.server": "https://kroki.io",
+  "plantuml.render": "PlantUMLServer",
+  "plantuml.commandArgs": [],
+  "plantuml.jarArgs": [],
+  "markdown.preview.enhanced.enableExtendedTableSyntax": true,
+  "markdown.preview.enhanced.enableTypographer": true,
+  "markdown.preview.enhanced.imageUploader": "imgur",
+  "markdown-preview-enhanced.plantumlServer": "https://kroki.io/plantuml/svg/",
+  "markdown-preview-enhanced.enableScriptExecution": true,
+  "markdown-preview-enhanced.usePuppeteerCore": false,
+  "markdown.extension.toc.levels": "2..6",
+  "markdown.extension.completion.root": "./docs/",
+  "files.associations": {
+    "*.puml": "plantuml",
+    "*.plantuml": "plantuml",
+    "*.pu": "plantuml"
+  },
+  "yaml.schemas": {
+    "https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
+  },
+  "editor.rulers": [80, 120],
+  "editor.wordWrap": "bounded",
+  "editor.wordWrapColumn": 80,
+  "[markdown]": {
+    "editor.wordWrap": "bounded",
+    "editor.wordWrapColumn": 80,
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "yzhang.markdown-all-in-one",
+    "bierner.markdown-mermaid",
+    "jebbs.plantuml",
+    "redhat.vscode-yaml",
+    "ms-vscode.vscode-json"
+  ]
+}
