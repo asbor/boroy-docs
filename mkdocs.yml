@@ -65,16 +65,18 @@ markdown_extensions:
 # Plugins
 plugins:
   - search
-  - awesome-pages
-  - kroki:
-      server_url: https://kroki.io
 
-# Navigation (managed by awesome-pages plugin)
+# Navigation
 nav:
   - Home: index.md
   - Getting Started: getting-started.md
-  - ... | guides/**
-  - ... | diagrams/**
+  - Guides:
+    - Authoring: guides/authoring.md
+  - Diagrams:
+    - Mermaid: diagrams/mermaid.md
+    - PlantUML: diagrams/plantuml.md
+  - My Notes:
+    - First Note: my-first-note.md
 
 # Extra
 extra:
