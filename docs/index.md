@@ -51,3 +51,4 @@ We welcome contributions! Check out our [Getting Started](getting-started.md) gu
 
 <- Multiple sync workflow Testing deployment 09:41:41 -->
 <- Multiple sync workflow Testing Tailscale deployment 09:50:00 -->
+<- Multiple sync workflow Testing with Tailscale OAuth 09:54:10 -->
