@@ -1,14 +1,16 @@
-# Documentation Site
+# Personal Knowledge Base
 
-A modern documentation site built with **MkDocs Material** and **Kroki** for diagram rendering.
+A self-hosted personal documentation system built with **MkDocs Material** and **Kroki** for diagram rendering. Perfect for running on Unraid or any Docker-capable server.
 
 ## Features
 
-- 📚 **MkDocs Material** - Beautiful, responsive documentation
+- � **Private Self-Hosting** - Your notes stay on your server
+- �📚 **MkDocs Material** - Beautiful, responsive documentation
 - 🎨 **Kroki Integration** - Render Mermaid, PlantUML, and other diagrams
-- 🐳 **Docker Compose** - No Python installation required
-- 💻 **VS Code Ready** - Preconfigured tasks and extensions
-- 🚀 **GitHub Pages** - Automated deployment
+- 🐳 **Docker Compose** - Easy deployment and management
+- 💻 **VS Code Ready** - Preconfigured for the best authoring experience
+- 🔄 **Auto-sync Options** - Multiple ways to sync your notes
+- 🌐 **Optional Nginx** - Reverse proxy for custom domains and SSL
 
 ## Quick Start
 
@@ -69,6 +71,23 @@ Kroki --> Developer: Beautiful Docs
 @enduml
 ```
 
+## Self-Hosting on Unraid
+
+For your personal notes server, use the production setup:
+
+```bash
+# Copy repository to your Unraid server
+git clone https://github.com/asbor/boroy-docs.git
+cd boroy-docs
+
+# Start the self-hosted stack
+docker compose -f docker-compose.prod.yml up -d
+```
+
+Access your notes at: `http://YOUR-UNRAID-IP:8080`
+
+📖 **See [SELF-HOSTING.md](SELF-HOSTING.md) for complete setup guide**
+
 ## Building for Production
 
 ### Using Docker
@@ -82,20 +101,12 @@ pip install -r requirements.txt
 mkdocs build
 ```
 
-## Deployment
-
-The site automatically deploys to GitHub Pages when you push to the `main` branch. Make sure to:
-
-1. Enable GitHub Pages in repository settings
-2. Set source to "Deploy from a branch"
-3. Select `gh-pages` branch
-
 ## Contributing
 
 1. Edit Markdown files in the `docs/` directory
 2. Use VS Code for the best authoring experience
 3. Preview changes with `docker compose up`
-4. Commit and push to deploy
+4. Commit and push to keep your repository synced
 
 ## Troubleshooting
 
