@@ -11,6 +11,7 @@ edit_uri: edit/main/docs/
 # Configuration
 theme:
   name: material
+  custom_dir: overrides
   features:
     - navigation.tabs
     - navigation.sections
@@ -84,3 +85,6 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/your-username/your-repo
   generator: false
+
+extra_javascript:
+  - javascripts/kroki.js
