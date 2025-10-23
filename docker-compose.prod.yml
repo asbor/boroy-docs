@@ -1,4 +1,5 @@
 # Self-Hosted Docker Compose (Production)
+# Optimized for Unraid with health checks and proper dependencies
 version: "3.8"
 
 services:
@@ -7,49 +8,62 @@ services:
     container_name: notes-kroki
     restart: unless-stopped
     ports:
-      - "8000:8000"
+      - "8001:8000" # Kroki service on port 8001
     environment:
       - KROKI_SAFE_MODE=unsafe
     networks:
       - notes-network
     volumes:
       - kroki_cache:/tmp
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--quiet",
+          "--tries=1",
+          "--spider",
+          "http://localhost:8000/health",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
 
   docs:
     image: squidfunk/mkdocs-material
     container_name: notes-docs
     restart: unless-stopped
     ports:
-      - "8080:8000"
+      - "8090:8000" # Documentation on port 8090
     volumes:
       - ./docs:/docs/docs:ro
       - ./mkdocs.yml:/docs/mkdocs.yml:ro
-      - ./requirements.txt:/docs/requirements.txt:ro
+      - ./overrides:/docs/overrides:ro
       - notes_site:/docs/site
     command: serve --dev-addr=0.0.0.0:8000 --livereload
     depends_on:
-      - kroki
+      kroki:
+        condition: service_healthy
     networks:
       - notes-network
     environment:
       - LIVE_RELOAD_SUPPORT=true
       - FAST_MODE=true
-
-  # Optional: Add nginx reverse proxy for custom domain/SSL
-  nginx:
-    image: nginx:alpine
-    container_name: notes-nginx
-    restart: unless-stopped
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./ssl:/etc/nginx/ssl:ro
-    depends_on:
-      - docs
-    networks:
-      - notes-network
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--quiet",
+          "--tries=1",
+          "--spider",
+          "http://localhost:8000/",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
 
 volumes:
   kroki_cache:
