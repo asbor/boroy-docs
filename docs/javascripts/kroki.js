@@ -1,6 +1,7 @@
 // Kroki diagram rendering for PlantUML and other diagram types
 (function() {
-  const KROKI_SERVER = 'http://localhost:8001';
+  // Use the Tower server's Kroki endpoint
+  const KROKI_SERVER = 'http://tower.tailcc46cd.ts.net:8001';
   
   function renderDiagram(element, diagramType) {
     const code = element.textContent;
